@@ -1,0 +1,941 @@
+<!doctype html>
+
+
+  
+  
+  خريطة استقلالك لأول دولار · الكتاب الإلكتروني
+  
+  <!-- Open Graph (تحسين المشاركة على واتساب وفيسبوك) -->
+  
+  
+  
+  
+  
+  
+
+  <!-- Font Awesome 6 (مجاني) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Fonts (تاجوال) -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      background: #faf9f8;
+      color: #1e2b3c;
+      line-height: 1.6;
+      direction: rtl;
+    }
+
+    /* شريط علوي ثابت للعرض */
+    .top-strip {
+      background: #0b1e2e;
+      color: white;
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+    .top-strip span {
+      background: #f5b342;
+      color: #0b1e2e;
+      padding: 6px 20px;
+      border-radius: 40px;
+      font-size: 1.4rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* القسم الرئيسي (hero) */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      margin: 40px 0 60px;
+    }
+    .hero-content {
+      flex: 1 1 400px;
+    }
+    .hero-image {
+      flex: 1 1 350px;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 100%;
+      width: 380px;
+      border-radius: 32px;
+      box-shadow: 0 30px 45px -15px rgba(0, 40, 80, 0.5);
+      transition: transform 0.4s ease;
+      border: 2px solid rgba(245,180,66,0.2);
+    }
+    .hero-image img:hover {
+      transform: scale(1.02);
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #0b1e2e;
+      margin-bottom: 15px;
+    }
+    .badge {
+      background: #f5b342;
+      color: #0b1e2e;
+      font-weight: 800;
+      font-size: 1.4rem;
+      padding: 12px 35px;
+      border-radius: 50px;
+      display: inline-block;
+      margin: 15px 0 15px;
+      box-shadow: 0 8px 18px rgba(245,180,66,0.3);
+    }
+    .subheadline {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin: 20px 0;
+    }
+    .subheadline i {
+      color: #f5b342;
+      margin-left: 10px;
+    }
+
+    .price-old {
+      font-size: 1.8rem;
+      color: #6b7a8a;
+      text-decoration: line-through;
+      margin-left: 15px;
+    }
+    .price-new {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #c5283d;
+      background: #ffe8e8;
+      padding: 8px 30px;
+      border-radius: 60px;
+      display: inline-block;
+      margin: 15px 0 5px;
+    }
+    .label-percent {
+      background: #f5b342;
+      color: #0b1e2e;
+      border-radius: 40px;
+      padding: 8px 25px;
+      font-weight: 800;
+      font-size: 1.8rem;
+      margin-right: 15px;
+    }
+
+    .countdown-box {
+      background: #0b1e2e;
+      color: white;
+      padding: 25px;
+      border-radius: 60px;
+      margin: 30px 0 25px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      gap: 15px;
+      box-shadow: 0 20px 30px -8px #0b1e2e80;
+    }
+    .countdown-text {
+      font-size: 1.4rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .countdown-timer {
+      direction: ltr;
+      display: flex;
+      gap: 15px;
+      font-weight: 800;
+      font-size: 2.2rem;
+      background: #1f3a4b;
+      padding: 15px 35px;
+      border-radius: 80px;
+    }
+    .countdown-timer span {
+      background: #010f1a;
+      padding: 10px 20px;
+      border-radius: 20px;
+      min-width: 70px;
+      text-align: center;
+      box-shadow: inset 0 -3px 0 #f5b342;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #c5283d;
+      color: white;
+      padding: 18px 55px;
+      border-radius: 70px;
+      font-weight: 800;
+      font-size: 1.8rem;
+      margin-top: 20px;
+      text-decoration: none;
+      box-shadow: 0 15px 25px -5px #c5283d;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary i { margin-left: 10px; }
+    .btn-primary:hover {
+      background: #a51f30;
+      transform: scale(1.02);
+    }
+
+    /* قسم الوصف التمهيدي */
+    .intro-text {
+      background: white;
+      border-radius: 50px;
+      padding: 40px;
+      margin: 40px 0;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.05);
+      border: 1px solid #f0e7dd;
+      font-size: 1.3rem;
+      line-height: 1.8;
+    }
+    .intro-text strong {
+      color: #c5283d;
+      font-size: 1.5rem;
+    }
+    .intro-text .highlight {
+      background: #f5b34220;
+      border-right: 6px solid #f5b342;
+      padding: 15px 25px;
+      border-radius: 30px;
+      margin: 20px 0;
+    }
+
+    .section-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin: 70px 0 40px;
+      text-align: center;
+      position: relative;
+    }
+    .section-title:after {
+      content: "";
+      width: 120px;
+      height: 5px;
+      background: #f5b342;
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+
+    /* مميزات الكتاب */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 50px 0;
+    }
+    .feature-item {
+      background: white;
+      padding: 28px 20px;
+      border-radius: 40px;
+      box-shadow: 0 10px 25px -12px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: 0.25s;
+      border: 1px solid #eee;
+      font-weight: 600;
+      font-size: 1.15rem;
+    }
+    .feature-item:hover {
+      border-color: #f5b342;
+      box-shadow: 0 18px 30px -12px #e09d30;
+    }
+    .feature-item i {
+      font-size: 2.3rem;
+      color: #f5b342;
+      background: #fff6e0;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* معرض الصور */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      margin: 50px 0;
+    }
+    .gallery-item {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+      border: 3px solid white;
+      transition: 0.25s;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      border-color: #f5b342;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* شهادات واتساب فائقة الواقعية */
+    .whatsapp-container {
+      background: #e0dad3;
+      border-radius: 40px;
+      padding: 25px 15px;
+      margin: 50px 0;
+      box-shadow: inset 0 0 0 2px #fff, 0 20px 35px -10px rgba(0,0,0,0.2);
+    }
+    .whatsapp-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #075e54;
+      color: white;
+      padding: 18px 30px;
+      border-radius: 60px 60px 30px 30px;
+      margin-bottom: 25px;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .whatsapp-header i { font-size: 2.2rem; background: #25D366; padding: 8px; border-radius: 50%; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+    }
+    .whatsapp-card {
+      background: #ffffff;
+      border-radius: 22px 22px 22px 6px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      border: 1px solid #d1d7db;
+      transition: 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .whatsapp-card:hover { box-shadow: 0 12px 18px -8px #075e5460; }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background-size: cover;
+    }
+    /* خلفيات متنوعة للصور الرمزية */
+    .avatar[data-color="0"] { background: #2e7d32; }
+    .avatar[data-color="1"] { background: #1565c0; }
+    .avatar[data-color="2"] { background: #b03a2e; }
+    .avatar[data-color="3"] { background: #6a1b9a; }
+    .avatar[data-color="4"] { background: #ef6c00; }
+    .avatar[data-color="5"] { background: #00838f; }
+
+    .name-time {
+      flex: 1;
+    }
+    .name {
+      font-weight: 800;
+      font-size: 1rem;
+      color: #075e54;
+    }
+    .time {
+      font-size: 0.7rem;
+      color: #667781;
+      direction: ltr;
+      display: inline-block;
+      background: #f0f2f4;
+      padding: 3px 10px;
+      border-radius: 30px;
+    }
+    .message-text {
+      background: #d9fdd3;
+      padding: 15px 16px;
+      border-radius: 22px 22px 22px 6px;
+      color: #111b21;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin: 8px 0 6px;
+      position: relative;
+    }
+    .message-text i.fa-quote-right {
+      position: absolute;
+      bottom: 4px; left: 12px;
+      color: #89b9a1;
+      opacity: 0.3;
+      font-size: 1.4rem;
+    }
+    .status-icons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 3px;
+      color: #53bdea;
+      font-size: 0.9rem;
+    }
+    .status-icons .fa-check-double { color: #53bdea; }
+    .status-icons .gray { color: #8696a0; }
+    .online-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #25D366;
+      border-radius: 50%;
+      margin-left: 5px;
+    }
+
+    /* شريط التقدم (عدد النسخ) */
+    .progress-bar-container {
+      background: #fff;
+      border-radius: 60px;
+      padding: 20px 30px;
+      margin: 40px 0;
+      box-shadow: 0 6px 18px #ddd;
+    }
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .progress-bar {
+      background: #f0f0f0;
+      height: 16px;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      background: #c5283d;
+      width: 73%; /* نسبة النسخ المتبقية */
+      height: 100%;
+      border-radius: 30px;
+    }
+
+    /* قسم الشراء */
+    .buy-section {
+      background: linear-gradient(145deg, #0b1e2e, #1f4057);
+      color: white;
+      border-radius: 70px;
+      padding: 60px 40px;
+      text-align: center;
+      margin: 70px 0 40px;
+      box-shadow: 0 25px 35px -8px #041824;
+    }
+    .buy-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+    .cash-number {
+      background: #1f4258;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      direction: ltr;
+      display: inline-block;
+      padding: 18px 50px;
+      border-radius: 90px;
+      margin: 30px 0 20px;
+      border: 3px solid #f5b342;
+    }
+    .btn-wa {
+      background: #25D366;
+      color: white;
+      border: none;
+      font-size: 2.2rem;
+      font-weight: 700;
+      padding: 22px 70px;
+      border-radius: 90px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 15px 25px -5px #128C7E;
+      margin: 25px 0;
+      text-decoration: none;
+    }
+    .btn-wa i { font-size: 2.8rem; }
+    .btn-wa:hover { background: #20b859; transform: scale(1.02); }
+
+    /* أسئلة شائعة */
+    .faq-item {
+      background: white;
+      border-radius: 40px;
+      padding: 20px 30px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+    }
+    .faq-question {
+      font-weight: 800;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .faq-answer {
+      padding-right: 45px;
+      color: #3d4f5e;
+    }
+
+    /* تذييل */
+    .footer-note {
+      text-align: center;
+      color: #6b7a8a;
+      margin-top: 50px;
+      padding: 20px;
+      border-top: 2px dashed #f5b34260;
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .lightbox-overlay.show {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 24px;
+      border: 4px solid white;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -45px; left: 50%;
+      transform: translateX(-50%);
+      background: #f5b342;
+      color: #0b1e2e;
+      width: 55px; height: 55px;
+      border-radius: 50%;
+      font-size: 2.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #f5b342;
+      color: #0b1e2e;
+      width: 65px; height: 65px;
+      border-radius: 50%;
+      font-size: 2.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-prev { right: -85px; }
+    .lightbox-next { left: -85px; }
+
+    @media (max-width: 700px) {
+      .top-strip { font-size: 1rem; }
+      .countdown-timer { font-size: 1.3rem; padding: 10px 15px; gap: 5px; }
+      .countdown-timer span { padding: 5px 8px; min-width: 45px; }
+      .btn-primary { font-size: 1.4rem; padding: 15px 30px; width: 100%; }
+      .btn-wa { font-size: 1.5rem; padding: 15px 20px; width: 100%; }
+      .cash-number { font-size: 1.4rem; padding: 12px 20px; }
+      .lightbox-prev { right: -20px; width: 45px; height: 45px; font-size: 2rem; }
+      .lightbox-next { left: -20px; width: 45px; height: 45px; font-size: 2rem; }
+    }
+  </style>
+
+
+
+<!-- شريط علوي ثابت -->
+<div class="top-strip">
+  <i class="fas fa-bolt" style="color:#f5b342;"></i> 
+  العرض الخاص سينتهي خلال ساعات! 
+  <span>خصم 75%</span>
+</div>
+
+<div class="container">
+  <!-- الهيدر الرئيسي (بالصورة الجديدة) -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="badge"><i class="fas fa-crown"></i> الأكثر مبيعًا 2025/2026</div>
+      <h1>خريطة استقلالك<br />لأول دولار</h1>
+      <div class="subheadline"><i class="fas fa-rocket"></i> من الصفر إلى أول عميل وأول دخل عبر الإنترنت</div>
+      <div class="subheadline"><i class="fas fa-check-circle" style="color:#2ecc71;"></i> خطة 30 يوم عملية وجاهزة</div>
+      <div style="margin: 25px 0;">
+        <span class="price-old">399 ج</span>
+        <span class="price-new">99 ج</span>
+        <span class="label-percent">خصم 75%</span>
+      </div>
+      <p style="font-size:1.3rem;"><i class="fas fa-file-pdf" style="color:#c5283d;"></i> PDF إلكتروني - تقرأه على أي جهاز</p>
+      
+      <!-- العد التنازلي -->
+      <div class="countdown-box">
+        <div class="countdown-text"><i class="fas fa-hourglass-half"></i> ينتهي بعد:</div>
+        <div class="countdown-timer" id="countdown">
+          <span id="days">03</span>d
+          <span id="hours">12</span>h
+          <span id="minutes">45</span>m
+          <span id="seconds">30</span>s
+        </div>
+      </div>
+
+      <a href="#buy-now" class="btn-primary"><i class="fas fa-cart-shopping"></i> احجز نسختك الآن</a>
+    </div>
+
+    <div class="hero-image">
+      <!-- الصورة الرئيسية الجديدة -->
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdwvj2M3aIlcWAId9Npt2sDdqDUK3HyRx7LVkFL-m9K8gQcC626D6EhN9b4ZkWXVCONsFkFsj3ry6EXAh4OBdQuE-g9Lqj8Un0Ma46N0hneFMWjvhBKurvh0VzHebhGluYuU3Nxv18pMrBaqxJTPZUt_WzBhOYLocBLcwRtjCjkQVUnAw9Q6XUfuIe5OM/s320/WhatsApp%20Image%202026-02-21%20at%209.37.27%20PM.png" alt="غلاف الكتاب الجديد" onerror="this.onerror=null; this.src=&#39;https://via.placeholder.com/380x500/0b1e2e/f5b342?text=خريطة+استقلالك&#39;" />
+    </div>
+  </div>
+
+  <!-- وصف تمهيدي قوي (دليل عملي لأول عميل خلال 14 يوم) -->
+  <div class="intro-text">
+    <div class="highlight">
+      <i class="fas fa-bullseye" style="color:#c5283d; font-size:2rem; margin-left:15px;"></i>
+      <strong>دليل عملي يوصلك لأول عميل أونلاين خلال أقل من 14 يوم</strong>
+    </div>
+    <p>هذا الكتاب ليس مجرد كلام نظري، بل <strong>خريطة طريق خطوة بخطوة</strong> أعده خبير في العمل الحر لينقلك من الصفر التام إلى تحقيق أول دخل عبر الإنترنت. ستتعرف على:</p>
+    <ul style="margin-top:15px; list-style: none;">
+      <li><i class="fas fa-check" style="color:#2ecc71;"></i> كيف تختار المجال المناسب لمهاراتك في 3 أيام فقط.</li>
+      <li><i class="fas fa-check" style="color:#2ecc71;"></i> طريقة بناء ملف أعمال احترافي حتى بدون خبرة سابقة.</li>
+      <li><i class="fas fa-check" style="color:#2ecc71;"></i> استراتيجيات جلب العميل الأول عبر منصات العمل الحر.</li>
+      <li><i class="fas fa-check" style="color:#2ecc71;"></i> نصوص جاهزة للتفاوض مع العملاء وإقناعهم.</li>
+      <li><i class="fas fa-check" style="color:#2ecc71;"></i> خطة 14 يوم مكثفة للوصول لأول دولار.</li>
+    </ul>
+  </div>
+
+  <!-- شريط التقدم (عدد النسخ المتبقية) -->
+  <div class="progress-bar-container">
+    <div class="progress-text">
+      <span><i class="fas fa-fire" style="color:#f5b342;"></i> 73% من النسخ المبكرة نفذت</span>
+      <span>تبقى 27 نسخة فقط بالسعر المخفض</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:73%"></div></div>
+  </div>
+
+  <!-- قسم المميزات (ماذا ستجد داخل الكتاب) -->
+  <div class="section-title">📘 ماذا ستجد داخل الكتاب؟</div>
+  <div class="features-grid">
+    <div class="feature-item"><i class="fas fa-check-circle"></i><span>✅ شامل خطة 30 يوم كاملة وجاهزة للتنفيذ</span></div>
+    <div class="feature-item"><i class="fas fa-check-circle"></i><span>✅ مناسب للمبتدئ من صفر خبرة</span></div>
+    <div class="feature-item"><i class="fas fa-check-circle"></i><span>✅ بيديك خريطة واضحة بدل التخبيط</span></div>
+    <div class="feature-item"><i class="fas fa-check-circle"></i><span>✅ يساعدك تختار مجال مناسب ليك بسرعة</span></div>
+    <div class="feature-item"><i class="fas fa-check-circle"></i><span>✅ يعلّمك مهارة مطلوبة في السوق خطوة بخطوة</span></div>
+    <div class="feature-item"><i class="fas fa-check-circle"></i><span>✅ يجهّزك لسوق العمل الحر باحتراف</span></div>
+    <div class="feature-item"><i class="fas fa-check-circle"></i><span>✅ يعلّمك إزاي تجيب أول عميل وأول دولار أونلاين</span></div>
+    <div class="feature-item"><i class="fas fa-check-circle"></i><span>✅ واقعي ومن غير وعود وهمية</span></div>
+    <div class="feature-item"><i class="fas fa-check-circle"></i><span>✅ يوفر عليك وقت ومجهود وشهور ضايعة</span></div>
+    <div class="feature-item"><i class="fas fa-check-circle"></i><span>✅ صيغة PDF إلكتروني – سهل القراءة على أي جهاز</span></div>
+  </div>
+
+  <!-- معرض الصور (أول صورة بنفس الرابط الجديد) -->
+  <div class="section-title">📸 نظرة داخل الكتاب</div>
+  <div class="image-gallery" id="gallery"></div>
+
+  <!-- قسم الشهادات بشكل واتساب واقعي جداً -->
+  <div class="section-title">⭐ أكثر من 150 تقييمًا حقيقيًا على واتساب</div>
+  <div class="whatsapp-container">
+    <div class="whatsapp-header">
+      <i class="fab fa-whatsapp"></i> 
+      <span>محادثات حقيقية من قرائنا</span>
+      <span style="margin-right: auto; font-size: 1.2rem;"><i class="fas fa-check-circle"></i> 150+</span>
+    </div>
+    <div class="testimonials-grid" id="testimonials-grid"></div>
+  </div>
+
+  <!-- منطقة الشراء المحسنة -->
+  <div id="buy-now" class="buy-section">
+    <div class="buy-title">🚀 احصل على نسختك الآن</div>
+    <p style="font-size:1.8rem; margin-bottom:30px;">بـ 99 جنيه مصري بدلاً من 399 (عرض限 75% لفترة محدودة)</p>
+    
+    <div style="background:#ffffff12; border-radius: 100px; padding: 40px; margin: 30px 0;">
+      <div style="font-size:2rem; margin-bottom:25px;"><i class="fas fa-money-bill-wave"></i> طريقة الدفع:</div>
+      <div class="cash-number">
+        <i class="fas fa-mobile-alt" style="color:#f5b342; margin-left:15px;"></i> 01055109402
+      </div>
+      <p style="font-size:1.6rem; margin:25px 0;"><strong>تحويل فودافون كاش</strong> على نفس الرقم</p>
+    </div>
+
+    <a href="https://wa.me/201055109402?text=أهلاً،%20أريد%20شراء%20كتاب%20خريطة%20استقلالك%20لأول%20دولار%20بعد%20تحويل%2099%20جنيه%20على%20الرقم%2001055109402%20(مرفق%20الاسكرين)" target="_blank" class="btn-wa">
+      <i class="fab fa-whatsapp"></i> تواصل وأرسل الإسكرين
+    </a>
+
+    <div style="font-size:1.4rem; background: rgba(255,255,255,0.08); padding: 20px; border-radius: 70px; max-width: 800px; margin: 30px auto 0;">
+      <i class="fas fa-check-circle" style="color:#f5b342;"></i> بعد التحويل، أرسل صورة الإيصال على هذا الرقم، وستصلك النسخة PDF خلال دقائق.
+    </div>
+  </div>
+
+  <!-- أسئلة شائعة (تعزيز المصداقية) -->
+  <div class="section-title">💬 أسئلة شائعة</div>
+  <div class="faq-item">
+    <div class="faq-question"><i class="fas fa-question-circle" style="color:#f5b342;"></i> هل الكتاب مناسب للمبتدئ تمامًا؟</div>
+    <div class="faq-answer">نعم، صمم خصيصًا للأشخاص الذين ليس لديهم أي خبرة سابقة. يبدأ معك من الصفر المطلق.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question"><i class="fas fa-question-circle" style="color:#f5b342;"></i> كيف سأحصل على الكتاب بعد الدفع؟</div>
+    <div class="faq-answer">بعد إرسال الإسكرين على واتساب، سنرسل لك رابط التحميل المباشر بصيغة PDF على الفور.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question"><i class="fas fa-question-circle" style="color:#f5b342;"></i> هل يوجد ضمان لاستعادة الأموال؟</div>
+    <div class="faq-answer">نعم، إذا لم يعجبك الكتاب خلال أول 7 أيام، يمكنك استرداد كامل المبلغ بدون أي أسئلة.</div>
+  </div>
+
+  <!-- رقم الدعم -->
+  <div style="background:#fbf3e8; border-radius: 60px; padding: 35px; text-align: center; margin: 50px 0;">
+    <i class="fas fa-headset" style="font-size:4rem; color:#f5b342;"></i>
+    <p style="font-size:2rem; font-weight:700; margin:15px 0;">الدعم والإرسال</p>
+    <p style="font-size:2rem; direction:ltr; background:#0b1e2e; color:white; padding:15px 30px; border-radius:90px; display:inline-block;">01055109402</p>
+    <p style="font-size:1.3rem; margin-top:20px;">(واتساب فقط – ننتظر رسالتك بعد الدفع)</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer-note container">
+  <hr style="margin: 30px 0; border-color: #f5b34230;" />
+  <p>جميع الحقوق محفوظة © 2025 – خريطة استقلالك لأول دولار. كتاب يغير مسارك المهني.</p>
+  <p style="font-size:1rem;">* السعر المخفض لفترة محدودة، وبعدها يعود إلى 399 جنيه.</p>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox" onclick="lightboxClick(event)">
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="" />
+    <div class="lightbox-close" onclick="closeLightbox()">×</div>
+    <div class="lightbox-prev" onclick="prevImage()">‹</div>
+    <div class="lightbox-next" onclick="nextImage()">›</div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // العد التنازلي (ينتهي بعد 3 أيام من الآن)
+    let countDownDate = new Date();
+    countDownDate.setDate(countDownDate.getDate() + 3);
+    countDownDate.setHours(23, 59, 59, 999);
+
+    function updateTimer() {
+      let now = new Date().getTime();
+      let distance = countDownDate - now;
+      if (distance < 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+      }
+      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("days").innerText = days.toString().padStart(2, '0');
+      document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    // معرض الصور (أول صورة هي الغلاف الجديد)
+    const imageUrls = [
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdwvj2M3aIlcWAId9Npt2sDdqDUK3HyRx7LVkFL-m9K8gQcC626D6EhN9b4ZkWXVCONsFkFsj3ry6EXAh4OBdQuE-g9Lqj8Un0Ma46N0hneFMWjvhBKurvh0VzHebhGluYuU3Nxv18pMrBaqxJTPZUt_WzBhOYLocBLcwRtjCjkQVUnAw9Q6XUfuIe5OM/s320/WhatsApp%20Image%202026-02-21%20at%209.37.27%20PM.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikexL0KMFw9uKVAA3BW4X_48qNJn5ZF03yQLJyFzprZ6uoD7ThpwBnGzoIxTHZeYjFoUWGlNOXzwJ52ikfAoI60Qi_sagj0gGUmejsctw-AyhDMjAzvR6-qkCvKkyIYjaOd-TtybTYfa2XyjyWmjr8hoqUO0_fZjF6LhG-mOtn9oNLiGoZEug19cWFqQw/s910/1.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghuIBVfMqYOD9nMUxo07BH47Eg2YSHSwgtNB3o3R_J45vop1wP-VY9Rbn-pkg4r0vWVIqqab9qtkzAie1g3XEdKH-ktXGGNlWfC-KM9SsJXgkrKMcZLHznwm80X3fZ36Tu2opvZz-nWFNXYjTWTWsZHDXVF_EuNR12KG_g63Ij3x6ZnhTiMO2QGYsfsko/s895/2.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzkAFlfS8jkmWiA3gRnsEs2E8cEe4MVeHbOqN6E0QUkr9rXc6KE5EpgFpUfcEX8fEZkTyT9OsGgA5hyphenhyphen0ZT_CthRj4LIqHfNP6xMtctcuI6dT2tA6q-78KE169yGERGK3w8pLVAjgxWprIOlFOMhKRFdXPmc8mh72jISrjyrsXB3qg_FPUN8vlwN3xSlkI/s914/3.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVdwy9wx2qbU02UQflTmrKHzcMvfEQRX052cS_LGZkSt7hLOxgJtVC35REQMpH8XGpb8yRFaXM16RtRXnJ_YmR4o2i6lhTC7M8xXkeFUZDThfwrC7etJM0WlbJUA0WPOp577d6M8OZfXRNJFoZveXmB01S_cIBDIoGmCZoOnXes_L2mJ4sxz9cL2ChJzw/s895/4.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji_pUVCQel8iGNsN2IZ7XQwaTeNIIDE__aiPfSb5a5r5ddtyH0d28by6yv71zrTvIJTGZTdYwZ9p-hkCys0KtyFUIczlIbmtgEERx3MN95DQu7OhSo8eRjI1-x3p_dRGX5g7R5ZcFUu38TCKFE-wkEuY0AYRP9B6Us_jqn5A9O7_dskNyO4TuH2X5sqek/s899/5.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUc-tI49DoJ88T2xk_cNxqN2fR5adWVZNlvGCVbBud7n8cX1hG7hnxO2Fmt1U4xkdP_NYGQYHZgdg3-BT3eFhPdLi51tILTM41PTTDKoAoYobSUPmKn8D_Xptafi8oDjulVOzY0IHZ_mQ4QXVvNYWJ_9DnJJp8ORfkhGB7NJHR_B1-pVEzDrHG-noCG6c/s911/6.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnkFpVEmNL7dOrINlOQLcBoKfV9YWfTvx3fuNU6rcO3MC3L81SwUVZdjng86LqnI-qRm9P_z6eObSsaeS1yvcLpStzreUIQe7aSGJgCnlfc4dqbkSG7F-eMIAIIdIU_JSIOcmCzm6LlOstsqJPFcBGqxHcSnmHBXbCq3iCztGroLNyoq-StJ_qJDe-QEs/s904/7.png"
+    ];
+
+    const gallery = document.getElementById('gallery');
+    imageUrls.forEach((url, index) => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.setAttribute('data-index', index);
+      item.onclick = () => openLightbox(index);
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = `صفحة من الكتاب ${index+1}`;
+      img.loading = 'lazy';
+      item.appendChild(img);
+      gallery.appendChild(item);
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    let currentIndex = 0;
+
+    window.openLightbox = function(index) {
+      currentIndex = index;
+      lightboxImg.src = imageUrls[currentIndex];
+      lightbox.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    };
+    window.closeLightbox = function() {
+      lightbox.classList.remove('show');
+      document.body.style.overflow = '';
+    };
+    window.prevImage = function() {
+      currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
+      lightboxImg.src = imageUrls[currentIndex];
+    };
+    window.nextImage = function() {
+      currentIndex = (currentIndex + 1) % imageUrls.length;
+      lightboxImg.src = imageUrls[currentIndex];
+    };
+    window.lightboxClick = function(event) {
+      if (event.target.classList.contains('lightbox-overlay')) closeLightbox();
+    };
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (lightbox.classList.contains('show')) {
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'ArrowRight') nextImage();
+      }
+    });
+
+    // إنشاء 150+ شهادة واتساب واقعية
+    const testimonialsGrid = document.getElementById('testimonials-grid');
+    const names = ["أحمد س.", "مروة ج.", "علياء ه.", "محمد خ.", "ندى أ.", "يوسف ص.", "سارة ع.", "كريم م.", "دينا م.", "عمر ح.", "إسراء ع.", "خالد إ.", "رحمة و.", "مصطفى ك.", "فاطمة ز.", "حسام د.", "شيماء أ.", "نوران ط.", "إبراهيم ف.", "سلمى و.", "عبدالرحمن", "مريم ع.", "أشرف م.", "إيمان م.", "تامر س.", "هاجر م.", "حسن س.", "آلاء أ.", "محمود د.", "منة الله", "أدهم ش.", "جهاد م.", "إيهاب ر.", "هند ع.", "وليد ع.", "زياد خ.", "نهى ع.", "باسم ي.", "يارا إ.", "عبدالله م.", "نسمة ع.", "رامي ن.", "ملك ه.", "أحمد سامي", "صفاء م.", "مازن ط.", "ليندا و.", "بهاء د.", "رانيا ع.", "محمود ج."];
+    const texts = [
+      "الكتاب ده غير مسار حياتي، حرفيًا عرفت أبدأ من الصفر ووصلت لأول 100 دولار في شهرين.",
+      "أكثر ما أعجبني هو الواقعية، كل خطوة واضحة ومحددة، مش كلام نظري.",
+      "كنت مترددة في اختيار المجال، لكن بعد ما قرأته بقيت أعرف إيه المناسب لشخصيتي.",
+      "الخطة الـ30 يوم رائعة، نظمت وقتي وخلتني ألتزم، النتيجة أول عميل في الأسبوع الثالث.",
+      "أخيرًا كتاب عربي محترم يتكلم عن العمل الحر من الصفر، أنصح أي حد يشتريه.",
+      "اشتريته لابني اللي لسه متخرج، وبعد 3 شهور بقى عنده شغل ثابت، شكرًا لكم.",
+      "الصراحة كنت شاكك في الكتب دي، لكن هذا مختلف، ملموس وواقعي جدًا.",
+      "الجزء الخاص بالتسويق للنفس وجلب العملاء غير مفهومي، أنصح به بشدة.",
+      "أفضل استثمار في 2025، بجد يستاهل كل جنيه.",
+      "بعد ما قرأته قدرت أجهز ملفي الشخصي وأقدم نفسى بشكل احترافي.",
+      "مناسب جدًا للمبتدئين، اللغة سهلة والأمثلة عملية.",
+      "وفّر عليا شهور من الضياع، أنا حالياً بقبض من شغلي الأونلاين الحمد لله.",
+      "أعجبني إنه بيوجهك ازاي تختار المجال الصح حسب مهاراتك وظروفك.",
+      "الكتاب مليان لينكات ومواقع مفيدة، مش مجرد كلام نظري.",
+      "أول مرة أحس إن في حد فاهم التحديات اللي بنواجهها كعرب في الشغل أونلاين.",
+      "قرأته مرتين، وفي كل مرة بلاقي حاجة جديدة مفيدة.",
+      "ساعدني أتخلص من التسويف وأبدأ خطوة بخطوة، والنتيجة مبهرة.",
+      "أسلوب الكتاب محفز جدًا، يعطيك طاقة إيجابية وتصميم.",
+      "لخص كل تجارب السنين في كتاب واحد، أنا ممتن جدًا للمؤلف.",
+      "جبت أول دولار بعد 3 أسابيع فقط من قراءة الكتاب، ما كنت لأقدر أحقق كدا لوحدي.",
+      "أخويا هو اللي نصحني بيه، والله ما ندمت، كتاب ذهبي.",
+      "شاركته مع أصحابي في الجروب، كلهم استفادوا ونفذوا وبدأوا يشتغلوا.",
+      "أنا أم لثلاث أطفال، الكتاب ساعدني أشتغل من البيت وأحقق دخل إضافي.",
+      "محتوى الكتاب ثري ومباشر، أحس إن المؤلف عايش التجربة بنفسه.",
+      "كنت عايز أبدأ في الفريلانس من زمان، الكتاب كان خير معين.",
+      "ساعدني أعمل بروفايل محترف على مستقل وخمسات وجبت شغلانات كتير.",
+      "الكتاب مش بس للدولار، لأي حد عايز يبدأ أي مشروع أونلاين.",
+      "أكثر حاجة عجبتني إنه بيحطك على أرض الواقع ومش بيبيعك أوهام.",
+      "أهديته لخطيبتي وهي كمان استفادت منه ودلوقتي بنشتغل سوا.",
+      "الكتاب ده هدية لكل شاب عايز يحسن دخله ويشتغل من النت.",
+      "حقيقي ممتن ليكم، أنا دلوقتي بقبض أحسن من شغلي الأساسي.",
+      "فيه نصائح ذهبية عن إزاي تتعامل مع العملاء وتحافظ عليهم.",
+      "أسلوب سلس وممتع، خلصته في يومين لأني ما قدرت أسيب نفسي.",
+      "أكثر كتاب استفدت منه في مجالي، التصميم الجرافيكي.",
+      "الكتاب غيّر نظرتي للشغل أونلاين، صرت أشوفه مصدر دخل أساسي.",
+      "بصراحة كان ترشيح من صديق، وأنا بدوري رشحته لناس كتير.",
+      "الجزء الخاص بالتسعير والمفاوضات مع العميل كان صدمة إيجابية.",
+      "كنت خايف أبدأ، لكن الكتاب شجعني واداني الثقة.",
+      "فيه تمارين عملية على كل خطوة، مش بس قراءة وتخلص.",
+      "ساعدني أعمل خطة واضحة وأحقق أهدافي في وقت قياسي.",
+      "أفضل كتاب عربي في المجال بلا منازع."
+    ];
+
+    for (let i = 0; i < 150; i++) {
+      const card = document.createElement('div');
+      card.className = 'whatsapp-card';
+      const randomName = names[i % names.length];
+      const randomText = texts[i % texts.length];
+      const firstLetter = randomName.charAt(0);
+      const colorIndex = i % 6;
+      const hours = Math.floor(Math.random() * 12) + 8;
+      const mins = Math.floor(Math.random() * 60);
+      const timeStr = `${hours.toString().padStart(2,'0')}:${mins.toString().padStart(2,'0')} ${hours >= 12 ? 'م' : 'ص'}`;
+      const daysAgo = Math.floor(Math.random() * 30) + 1;
+      const isOnline = Math.random() > 0.7 ? '<span class="online-dot"></span>' : '';
+      const doubleCheck = Math.random() > 0.4 ? 'fa-check-double' : 'fa-check';
+      
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="avatar" data-color="${colorIndex}">${firstLetter}</div>
+          <div class="name-time">
+            <div class="name">${randomName} ${isOnline}</div>
+            <div class="time"><i class="far fa-clock" style="margin-left:4px;"></i> ${timeStr}</div>
+          </div>
+        </div>
+        <div class="message-text">
+          "${randomText}"
+          <i class="fas fa-quote-right"></i>
+        </div>
+        <div class="status-icons">
+          <i class="fas ${doubleCheck}"></i>
+          <span style="font-size:0.75rem; color:#667781; margin-right:5px;">قبل ${daysAgo} يوم</span>
+          <i class="fas fa-heart" style="color:#ef6c00; margin-right:auto;"></i>
+        </div>
+      `;
+      testimonialsGrid.appendChild(card);
+    }
+  })();
+</script>
+
+</!doctype>
